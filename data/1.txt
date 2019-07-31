@@ -1,0 +1,14 @@
+// Table pattern pass
+templates\res.json
+
+// Setting fields
+e004084:R19.3:BILL:1312:test:internetbanking:PEB:test
+
+// Unique fields
+CREATED_BY:RELEASE_NUMBER:TEMPLATE_ID
+'e004084':'R19.3':'SE_MAILBOX_NEW_MAIL_ORDER'
+
+// Other fields
+INSTITUTE:RESOURCE_ID:TEXT
+'ALL':'LBL_SIGN_SELECTED':'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'
+'EASYBANK':'412124124124':'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'

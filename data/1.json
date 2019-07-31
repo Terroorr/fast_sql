@@ -1,0 +1,46 @@
+{
+  "TablesTemplateFileName":"templates\\res.json",
+  "SqlFileSettings": {
+    "Author":"e004084",
+    "Release":"R19.3",
+    "TicketType":"BILL",
+    "TicketNumber":"1312",
+    "Description":"test",
+    "Project":"internetbanking",
+    "Db":"PEB",
+    "DescriptionInFileName":"test"
+  },
+  "Data": {
+    "CREATED_BY":"'e004084'",
+    "RELEASE_NUMBER":"'R19.3'",
+    "TEMPLATE_ID":
+    {
+      "'SE_MAILBOX_NEW_MAIL_ORDER'":
+      {
+        "INSTITUTE":
+        {
+          "'ALL'":
+          {
+            "LANGUAGE": [
+              "'DE'",
+              "'EN'",
+              "'TR'",
+              "'SR'"
+            ],
+            "RESOURCE_ID":
+            {
+              "'LBL_SIGN_SELECTED'":
+              {
+                "TEXT": "'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'"
+              },
+              "'412124124124'":
+              {
+                "TEXT": "'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
