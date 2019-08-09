@@ -1,6 +1,6 @@
-package com.pavmoroz.fast.sql.model;
+package com.spg.fast.sql.model;
 
-public class SqlFileSettings {
+public class SQLFileSettings {
 
     private String author;
     private String release;
@@ -11,8 +11,7 @@ public class SqlFileSettings {
     private String db;
     private String descriptionInFileName;
 
-    private SqlFileSettings() {
-
+    private SQLFileSettings() {
     }
 
     public String getAuthor() {
@@ -48,7 +47,7 @@ public class SqlFileSettings {
     }
 
     public static Builder newBuilder() {
-        return new SqlFileSettings().new Builder();
+        return new SQLFileSettings().new Builder();
     }
 
     public class Builder {
@@ -58,55 +57,55 @@ public class SqlFileSettings {
         }
 
         public Builder setAuthor(String author) {
-            SqlFileSettings.this.author = author;
+            SQLFileSettings.this.author = author;
 
             return this;
         }
 
         public Builder setRelease(String release) {
-            SqlFileSettings.this.release = release;
+            SQLFileSettings.this.release = release;
 
             return this;
         }
 
         public Builder setTicketType(String ticketType) {
-            SqlFileSettings.this.ticketType = ticketType;
+            SQLFileSettings.this.ticketType = ticketType;
 
             return this;
         }
 
         public Builder setTicketNumber(String ticketNumber) {
-            SqlFileSettings.this.ticketNumber = ticketNumber;
+            SQLFileSettings.this.ticketNumber = ticketNumber;
 
             return this;
         }
 
         public Builder setDescription(String description) {
-            SqlFileSettings.this.description = description;
+            SQLFileSettings.this.description = description;
 
             return this;
         }
 
         public Builder setProject(String project) {
-            SqlFileSettings.this.project = project;
+            SQLFileSettings.this.project = project;
 
             return this;
         }
 
         public Builder setDb(String db) {
-            SqlFileSettings.this.db = db;
+            SQLFileSettings.this.db = db;
 
             return this;
         }
 
         public Builder setDescriptionInFileName(String descriptionInFileName) {
-            SqlFileSettings.this.descriptionInFileName = descriptionInFileName;
+            SQLFileSettings.this.descriptionInFileName = descriptionInFileName;
 
             return this;
         }
 
-        public SqlFileSettings build() {
-            return SqlFileSettings.this;
+        public SQLFileSettings build() {
+            return SQLFileSettings.this;
         }
     }
 }

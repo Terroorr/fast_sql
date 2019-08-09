@@ -1,14 +1,14 @@
-package com.pavmoroz.fast.sql;
+package com.spg.fast.sql;
 
-import com.pavmoroz.fast.sql.model.DataField;
-import com.pavmoroz.fast.sql.model.ValueGroup;
+import com.spg.fast.sql.model.SourceField;
+import com.spg.fast.sql.model.ValueGroup;
 
 public enum PatternFields {
-    INSTITUTE_to_LANGUAGE(DataField.newBuilder()
+    INSTITUTE_to_LANGUAGE(SourceField.newBuilder()
             .setName("INSTITUTE")
             .setValueGroup(ValueGroup.newBuilder()
                     .setValue("'ALL'")
-                    .setDataField(DataField.newBuilder()
+                    .setDataField(SourceField.newBuilder()
                             .setName("LANGUAGE")
                             .setValueGroup(ValueGroup.newBuilder()
                                     .setValue("'DE'")
@@ -26,7 +26,7 @@ public enum PatternFields {
                     .build())
             .setValueGroup(ValueGroup.newBuilder()
                     .setValue("'EASYBANK'")
-                    .setDataField(DataField.newBuilder()
+                    .setDataField(SourceField.newBuilder()
                             .setName("LANGUAGE")
                             .setValueGroup(ValueGroup.newBuilder()
                                     .setValue("'DE'")
@@ -38,13 +38,13 @@ public enum PatternFields {
                     .build())
             .build());
 
-    private DataField dataField;
+    private SourceField sourceField;
 
-    PatternFields(DataField dataField) {
-        this.dataField = dataField;
+    PatternFields(SourceField sourceField) {
+        this.sourceField = sourceField;
     }
 
-    public DataField getDataField() {
-        return dataField;
+    public SourceField getSourceField() {
+        return sourceField;
     }
 }

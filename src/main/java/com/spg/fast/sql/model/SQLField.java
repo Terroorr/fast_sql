@@ -1,17 +1,16 @@
-package com.pavmoroz.fast.sql.model;
+package com.spg.fast.sql.model;
 
-public class Field {
+public class SQLField {
     private String name;
     private String value;
 
-    public Field(String name, String value) {
+    public SQLField(String name, String value) {
         this.name = name;
         this.value = value;
     }
 
-    public Field(Field field) {
-        this.name = field.getName();
-        this.value = field.getValue();
+    public SQLField(SQLField SQLField) {
+        this(SQLField.getName(), SQLField.getValue());
     }
 
     public String getName() {

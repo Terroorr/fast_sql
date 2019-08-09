@@ -3,93 +3,104 @@
     {
       "TE_RESOURCES":[
         {
-          "RESOURCE_ID":null
+          "RESOURCE_ID":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "RESOURCE_CODE":"'LBL'"
+          "RESOURCE_CODE":"'LBL'",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "LANGUAGE":null
+          "LANGUAGE":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "INSTITUTE":null
+          "INSTITUTE":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "TEMPLATE_ID":null
+          "TEMPLATE_ID":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "TEXT":null
+          "TEXT":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "IS_UPDATE_IT_ONLY":"'N'"
+          "IS_UPDATE_IT_ONLY":"'N'",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "VERSION":"1"
+          "VERSION":"1",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "TOUCHED_ON":"SYSDATE"
+          "TOUCHED_ON":"SYSDATE",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "STATUS":"'D'"
+          "STATUS":"'D'",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "RELEASE_NUMBER":null
+          "RELEASE_NUMBER": null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "CREATED_BY":null
+          "CREATED_BY":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "CREATED_AT":"SYSDATE"
-        },
-        {
-          "fields_for_delete": [
-          "TEMPLATE_ID",
-          "INSTITUTE",
-          "RESOURCE_ID",
-          "RELEASE_NUMBER"]
+          "CREATED_AT":"SYSDATE",
+          "PRESENCE_IN_DELETE": false
         }
       ]
     },
     {
       "EB_TR_RESOURCES":[
         {
-          "RESOURCE_ID":null
+          "RESOURCE_ID":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "RESOURCE_CODE":"'LBL'"
+          "RESOURCE_CODE":"'LBL'",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "LANGUAGE":null
+          "LANGUAGE":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "INSTITUTE":null
+          "INSTITUTE":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "TEMPLATE_ID":null
+          "TEMPLATE_ID":null,
+          "PRESENCE_IN_DELETE": true
         },
         {
-          "TEXT":null
+          "TEXT":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "IS_UPDATE_IT_ONLY":"'N'"
+          "IS_UPDATE_IT_ONLY":"'N'",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "VERSION":"1"
+          "VERSION":"1",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "TOUCHED_ON":"SYSDATE"
+          "TOUCHED_ON":"SYSDATE",
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "CREATED_BY":null
+          "CREATED_BY":null,
+          "PRESENCE_IN_DELETE": false
         },
         {
-          "CREATED_ON":"SYSDATE"
-        },
-        {
-          "fields_for_delete": [
-            "TEMPLATE_ID",
-            "INSTITUTE",
-            "RESOURCE_ID"]
+          "CREATED_ON":"SYSDATE",
+          "PRESENCE_IN_DELETE": false
         }
       ]
     }

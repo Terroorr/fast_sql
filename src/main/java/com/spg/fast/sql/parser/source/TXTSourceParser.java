@@ -1,9 +1,9 @@
-package com.pavmoroz.fast.sql.parser;
+package com.spg.fast.sql.parser.source;
 
-import com.pavmoroz.fast.sql.model.DataField;
-import com.pavmoroz.fast.sql.model.DataInput;
-import com.pavmoroz.fast.sql.model.SqlFileSettings;
-import com.pavmoroz.fast.sql.model.ValueGroup;
+import com.spg.fast.sql.model.SourceField;
+import com.spg.fast.sql.model.Source;
+import com.spg.fast.sql.model.SQLFileSettings;
+import com.spg.fast.sql.model.ValueGroup;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,10 +14,15 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public class InputDataTXTParser implements Parser{
+public class TXTSourceParser implements SourceParser {
+    private String fileName;
+
+    public TXTSourceParser(String fileName) {
+        this.fileName = fileName;
+    }
 
     @Override
-    public DataInput parse(String fileName) {
+    public Source execute() {
         try {
             Scanner scanner = new Scanner(new File(fileName));
             return parseInputData(scanner);
@@ -26,8 +31,8 @@ public class InputDataTXTParser implements Parser{
         }
     }
 
-    private DataInput parseInputData(Scanner scanner) {
-        DataInput.Builder inputDataBuilder = DataInput.newBuilder();
+    private Source parseInputData(Scanner scanner) {
+        Source.Builder inputDataBuilder = Source.builder();
 
         List<String> fieldNames = new ArrayList<>();
         int numberLine = 0;
@@ -39,7 +44,7 @@ public class InputDataTXTParser implements Parser{
             } else numberLine++;
             switch (numberLine){
                 case 1:
-                    inputDataBuilder.setTablesTemplateFileName(tempString);
+                    inputDataBuilder.setTemplateFileName(tempString);
                     break;
                 case 2:
                     inputDataBuilder.setSqlFileSettings(getSqlFileSettings(tempString));
@@ -52,40 +57,42 @@ public class InputDataTXTParser implements Parser{
                     inputDataBuilder.setDataFields(getUniqueFields(fieldNames, tempString));
                     break;
                 default:
-                    inputDataBuilder.setDataField(getOtherFields(fieldNames, tempString));
+                    inputDataBuilder.setSourceField(getOtherFields(fieldNames, tempString));
                     break;
             }
         }
         return inputDataBuilder.build();
     }
 
-    private DataField getOtherFields(List<String> fieldNames, String tempString) {
+    private SourceField getOtherFields(List<String> fieldNames, String tempString) {
         String[] values = tempString.split(":");
-        DataField tempDataField = null;
+        SourceField tempSourceField = null;
         for (int i = values.length - 1; i >= 0 ; i--){
-            tempDataField = DataField.newBuilder()
+            ValueGroup.Builder builder = ValueGroup.newBuilder()
+                .setValue(values[i]);
+            if(tempSourceField != null){
+                builder.setDataField(tempSourceField);
+            }
+            tempSourceField = SourceField.newBuilder()
                     .setName(fieldNames.get(i))
-                    .setValueGroup(ValueGroup.newBuilder()
-                            .setValue(values[i])
-                            .setDataField(tempDataField)
-                            .build())
+                    .setValueGroup(builder.build())
                     .build();
         }
-        return tempDataField;
+        return tempSourceField;
     }
 
-    private Set<DataField> getUniqueFields(List<String> fieldNames, String tempString) {
-        Set<DataField> dataFields = new HashSet<>();
+    private Set<SourceField> getUniqueFields(List<String> fieldNames, String tempString) {
+        Set<SourceField> sourceFields = new HashSet<>();
         String[] values = tempString.split(":");
         for (int i = 0; i < values.length; i++){
-            dataFields.add(DataField.newBuilder()
+            sourceFields.add(SourceField.newBuilder()
                             .setName(fieldNames.get(i))
                             .setValueGroup(ValueGroup.newBuilder()
                                     .setValue(values[i])
                                     .build())
                             .build());
         }
-        return dataFields;
+        return sourceFields;
     }
 
     private List<String> getFieldNames(String tempString) {
@@ -93,8 +100,8 @@ public class InputDataTXTParser implements Parser{
         return Arrays.asList(values);
     }
 
-    private SqlFileSettings getSqlFileSettings(String tempString) {
-        SqlFileSettings.Builder builder = SqlFileSettings.newBuilder();
+    private SQLFileSettings getSqlFileSettings(String tempString) {
+        SQLFileSettings.Builder builder = SQLFileSettings.newBuilder();
         String[] values = tempString.split(":");
         builder.setAuthor(values[0]);
         builder.setRelease(values[1]);

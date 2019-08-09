@@ -1,4 +1,4 @@
-package com.pavmoroz.fast.sql;
+package com.spg.fast.sql;
 
 import static org.junit.Assert.assertTrue;
 

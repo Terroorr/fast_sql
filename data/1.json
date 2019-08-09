@@ -1,16 +1,16 @@
 {
-  "TablesTemplateFileName":"templates\\res.json",
-  "SqlFileSettings": {
-    "Author":"e004084",
-    "Release":"R19.3",
-    "TicketType":"BILL",
-    "TicketNumber":"1312",
-    "Description":"test",
-    "Project":"internetbanking",
-    "Db":"PEB",
-    "DescriptionInFileName":"test"
+  "TEMPLATE_FILE":"templates\\res.json",
+  "FILE_SETTINGS": {
+    "AUTHOR":"e004084",
+    "RELEASE":"R19.3",
+    "TICKET_TYPE":"BILL",
+    "TICKET_NUMBER":"1312",
+    "DESCRIPTION":"test",
+    "PROJECT":"internetbanking",
+    "DB":"PEB",
+    "DESCRIPTION_IN_FILE_NAME":"test"
   },
-  "Data": {
+  "DATA": {
     "CREATED_BY":"'e004084'",
     "RELEASE_NUMBER":"'R19.3'",
     "TEMPLATE_ID":
