@@ -29,11 +29,11 @@ public class SQLRow {
         return SQLFields;
     }
 
-    public void addField(String name, String value) {
+    public void addField(String name, String value, FieldType type) {
         if (containsField(name)) {
             setFieldValue(name, value);
         } else {
-            this.SQLFields.add(new SQLField(name, value));
+            this.SQLFields.add(new SQLField(name, value, type));
         }
     }
 

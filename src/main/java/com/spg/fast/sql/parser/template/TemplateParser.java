@@ -1,6 +1,7 @@
 package com.spg.fast.sql.parser.template;
 
 import com.spg.fast.sql.Const;
+import com.spg.fast.sql.model.FieldType;
 import com.spg.fast.sql.model.SQL;
 import com.spg.fast.sql.model.SQLRow;
 import org.json.simple.JSONArray;
@@ -37,56 +38,14 @@ public class TemplateParser {
                 SQLRow insertSQLRow = new SQLRow(Const.INSERT, tableName.toString());
                 SQLRow deleteSQLRow = new SQLRow(Const.DELETE, tableName.toString());
                 for(Object field : (JSONArray) ((JSONObject) table).get(tableName)){
-                    boolean presenceInDelete = false;
-                    String name = null;
-                    String value = null;
-                    for (Object fieldName : ((JSONObject) field).keySet()){
-                        if (Const.PRESENCE_IN_DELETE.equals(fieldName)){
-                            presenceInDelete = (boolean) ((JSONObject) field).get(fieldName);
-                        }
-                        else {
-                            name = fieldName.toString();
-                            value = ((JSONObject) field).get(fieldName) != null ?
-                                    ((JSONObject) field).get(fieldName).toString() : null;
-                        }
-                    }
+                    boolean presenceInDelete = (boolean) ((JSONObject) field).get("PRESENCE_IN_DELETE");
+                    String name = ((JSONObject) field).get("NAME").toString();
+                    String value = ((JSONObject) field).get("VALUE").toString();
+                    FieldType type = FieldType.valueOf(((JSONObject) field).get("TYPE").toString());
                     if (presenceInDelete){
-                        deleteSQLRow.addField(name, value);
+                        deleteSQLRow.addField(name, value, type);
                     }
-                    insertSQLRow.addField(name, value);
-                }
-                SQLRows.add(deleteSQLRow);
-                SQLRows.add(insertSQLRow);
-            }
-        }
-        return SQLRows;
-    }
-
-    private ArrayList<SQLRow> getDocumentRows2(JSONObject tablesTemplate) {
-        ArrayList<SQLRow> SQLRows = new ArrayList<>();
-
-        for (Object table : (JSONArray) tablesTemplate.get("tables")){
-            for (Object tableName : ((JSONObject) table).keySet()){
-                SQLRow insertSQLRow = new SQLRow(Const.INSERT, tableName.toString());
-                SQLRow deleteSQLRow = new SQLRow(Const.DELETE, tableName.toString());
-                for(Object field : (JSONArray) ((JSONObject) table).get(tableName)){
-                    boolean presenceInDelete = false;
-                    String name = null;
-                    String value = null;
-                    for (Object fieldName : ((JSONObject) field).keySet()){
-                        if (Const.PRESENCE_IN_DELETE.equals(fieldName)){
-                            presenceInDelete = (boolean) ((JSONObject) field).get(fieldName);
-                        }
-                        else {
-                            name = fieldName.toString();
-                            value = ((JSONObject) field).get(fieldName) != null ?
-                                    ((JSONObject) field).get(fieldName).toString() : null;
-                        }
-                    }
-                    if (presenceInDelete){
-                        deleteSQLRow.addField(name, value);
-                    }
-                    insertSQLRow.addField(name, value);
+                    insertSQLRow.addField(name, value, type);
                 }
                 SQLRows.add(deleteSQLRow);
                 SQLRows.add(insertSQLRow);

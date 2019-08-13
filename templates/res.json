@@ -1,106 +1,154 @@
 {
   "tables": [
     {
-      "TE_RESOURCES":[
+      "TE_RESOURCES": [
         {
-          "RESOURCE_ID":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "RESOURCE_ID",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "RESOURCE_CODE":"'LBL'",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "RESOURCE_CODE",
+          "VALUE": "LBL",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "LANGUAGE":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "LANGUAGE",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "INSTITUTE":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "INSTITUTE",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "TEMPLATE_ID":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "TEMPLATE_ID",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "TEXT":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "TEXT",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "IS_UPDATE_IT_ONLY":"'N'",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "IS_UPDATE_IT_ONLY",
+          "VALUE": "N",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "VERSION":"1",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "VERSION",
+          "VALUE": "1",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "INT"
         },
         {
-          "TOUCHED_ON":"SYSDATE",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "TOUCHED_ON",
+          "VALUE": "SYSDATE",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "DATE"
         },
         {
-          "STATUS":"'D'",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "STATUS",
+          "VALUE": "D",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "RELEASE_NUMBER": null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "RELEASE_NUMBER",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "CREATED_BY":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "CREATED_BY",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "CREATED_AT":"SYSDATE",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "CREATED_AT",
+          "VALUE": "SYSDATE",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "DATE"
         }
       ]
     },
     {
-      "EB_TR_RESOURCES":[
+      "EB_TR_RESOURCES": [
         {
-          "RESOURCE_ID":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "RESOURCE_ID",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "RESOURCE_CODE":"'LBL'",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "RESOURCE_CODE",
+          "VALUE": "LBL",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "LANGUAGE":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "LANGUAGE",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "INSTITUTE":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "INSTITUTE",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "TEMPLATE_ID":null,
-          "PRESENCE_IN_DELETE": true
+          "NAME": "TEMPLATE_ID",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": true,
+          "TYPE": "TEXT"
         },
         {
-          "TEXT":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "TEXT",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "IS_UPDATE_IT_ONLY":"'N'",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "IS_UPDATE_IT_ONLY",
+          "VALUE": "N",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "VERSION":"1",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "VERSION",
+          "VALUE": "1",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "INT"
         },
         {
-          "TOUCHED_ON":"SYSDATE",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "TOUCHED_ON",
+          "VALUE": "SYSDATE",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "DATE"
         },
         {
-          "CREATED_BY":null,
-          "PRESENCE_IN_DELETE": false
+          "NAME": "CREATED_BY",
+          "VALUE": "",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "TEXT"
         },
         {
-          "CREATED_ON":"SYSDATE",
-          "PRESENCE_IN_DELETE": false
+          "NAME": "CREATED_ON",
+          "VALUE": "SYSDATE",
+          "PRESENCE_IN_DELETE": false,
+          "TYPE": "DATE"
         }
       ]
     }

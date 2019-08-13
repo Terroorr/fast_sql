@@ -27,7 +27,7 @@ public class SQL {
         List<SQLRow> newSQLRows = new ArrayList<>();
 
         SQLRow startDocumentSQLRow = new SQLRow(Const.COMMENT, "");
-        startDocumentSQLRow.addField(Const.COMMENT, Const.START_DOCUMENT);
+        startDocumentSQLRow.addField(Const.COMMENT, Const.START_DOCUMENT, FieldType.COMMENT);
         newSQLRows.add(startDocumentSQLRow);
 
         String currentTableName = "";
@@ -36,10 +36,11 @@ public class SQL {
                 SQLRow tableDistance;
                 if (currentTableName.equals(sqlRow.getTableName())) {
                     tableDistance = new SQLRow(Const.COMMENT, sqlRow.getTableName());
-                    tableDistance.addField(Const.COMMENT, Const.ONE_TABLE_DISTANCE);
+                    tableDistance.addField(Const.COMMENT, Const.ONE_TABLE_DISTANCE, FieldType.COMMENT);
                 } else {
                     tableDistance = new SQLRow(Const.COMMENT, sqlRow.getTableName());
-                    tableDistance.addField(Const.COMMENT, String.format(Const.DIFFERENT_TABLE_DISTANCE, sqlRow.getTableName()));
+                    tableDistance.addField(Const.COMMENT,
+                            String.format(Const.DIFFERENT_TABLE_DISTANCE, sqlRow.getTableName()), FieldType.COMMENT);
                     currentTableName = sqlRow.getTableName();
                 }
                 newSQLRows.add(tableDistance);
@@ -48,7 +49,7 @@ public class SQL {
         }
 
         SQLRow endDocumentSQLRow = new SQLRow(Const.COMMENT, "");
-        endDocumentSQLRow.addField(Const.COMMENT, Const.END_DOCUMENT);
+        endDocumentSQLRow.addField(Const.COMMENT, Const.END_DOCUMENT, FieldType.COMMENT);
         newSQLRows.add(endDocumentSQLRow);
 
         setSqlRows(newSQLRows);

@@ -65,17 +65,22 @@ public class TXTSourceParser implements SourceParser {
     }
 
     private SourceField getOtherFields(List<String> fieldNames, String tempString) {
-        String[] values = tempString.split(":");
+        String[] values = tempString.split("<  >");
         SourceField tempSourceField = null;
         for (int i = values.length - 1; i >= 0 ; i--){
-            ValueGroup.Builder builder = ValueGroup.newBuilder()
-                .setValue(values[i]);
-            if(tempSourceField != null){
-                builder.setDataField(tempSourceField);
+            String[] params = values[i].split("::");
+            Set<ValueGroup> valueGroupSet = new HashSet<>();
+            for (String param : params) {
+                ValueGroup.Builder builder = ValueGroup.newBuilder()
+                        .setValue(param);
+                if(tempSourceField != null){
+                    builder.setDataField(tempSourceField);
+                }
+                valueGroupSet.add(builder.build());
             }
             tempSourceField = SourceField.newBuilder()
                     .setName(fieldNames.get(i))
-                    .setValueGroup(builder.build())
+                    .setValueGroups(valueGroupSet)
                     .build();
         }
         return tempSourceField;
@@ -83,7 +88,7 @@ public class TXTSourceParser implements SourceParser {
 
     private Set<SourceField> getUniqueFields(List<String> fieldNames, String tempString) {
         Set<SourceField> sourceFields = new HashSet<>();
-        String[] values = tempString.split(":");
+        String[] values = tempString.split("<  >");
         for (int i = 0; i < values.length; i++){
             sourceFields.add(SourceField.newBuilder()
                             .setName(fieldNames.get(i))
@@ -96,13 +101,13 @@ public class TXTSourceParser implements SourceParser {
     }
 
     private List<String> getFieldNames(String tempString) {
-        String[] values = tempString.split(":");
+        String[] values = tempString.split("<  >");
         return Arrays.asList(values);
     }
 
     private SQLFileSettings getSqlFileSettings(String tempString) {
         SQLFileSettings.Builder builder = SQLFileSettings.newBuilder();
-        String[] values = tempString.split(":");
+        String[] values = tempString.split("<  >");
         builder.setAuthor(values[0]);
         builder.setRelease(values[1]);
         builder.setTicketType(values[2]);

@@ -1,5 +1,6 @@
 package com.spg.fast.sql;
 
+import com.spg.fast.sql.model.FieldType;
 import com.spg.fast.sql.model.SourceField;
 import com.spg.fast.sql.model.Source;
 import com.spg.fast.sql.model.SQL;
@@ -58,8 +59,14 @@ public class SQLGenerator {
                         param.append(" AND ");
                     }
                     param.append(field.getName())
-                            .append(" = ")
-                            .append(field.getValue());
+                            .append(" = ");
+
+                    if (FieldType.TEXT.equals(field.getType())) {
+                        param.append("'");
+                        param.append(field.getValue());
+                        param.append("'");
+                    } else
+                        param.append(field.getValue());
                 });
                 sb.append(String.format(Const.DeletePattern, SQLRow.getTableName(), param));
             }
@@ -74,7 +81,12 @@ public class SQLGenerator {
                         values.append(", ");
                     }
                     fields.append(field.getName());
-                    values.append(field.getValue());
+                    if (FieldType.TEXT.equals(field.getType())) {
+                        values.append("'");
+                        values.append(field.getValue());
+                        values.append("'");
+                    } else
+                        values.append(field.getValue());
                 });
                 sb.append(String.format(Const.InsertPattern, SQLRow.getTableName(), fields, values));
             }
@@ -118,7 +130,7 @@ public class SQLGenerator {
         }
         sourceField.getValueGroups().forEach(valueGroup -> {
             SQLRow newSQLRow = new SQLRow(sqlRow);
-            newSQLRow.addField(sourceField.getName(), valueGroup.getValue());
+            newSQLRow.setFieldValue(sourceField.getName(), valueGroup.getValue());
             if (CollectionUtils.isEmpty(valueGroup.getSourceFields())) {
                 newSQLRows.add(newSQLRow);
             } else {
@@ -151,7 +163,9 @@ public class SQLGenerator {
             if (sqlRow.getFieldValue(sourceField.getName()).equals(valueGroup.getValue())) {
                 if (CollectionUtils.isNotEmpty(valueGroup.getSourceFields())) {
                     valueGroup.getSourceFields().forEach(dependentField -> {
-                        if (sqlRow.containsField(dependentField.getName()) && sqlRow.getFieldValue(dependentField.getName()) == null) {
+                        if (sqlRow.containsField(dependentField.getName()) &&
+                                (sqlRow.getFieldValue(dependentField.getName()) == null
+                                || "".equals(sqlRow.getFieldValue(dependentField.getName())))) {
                             dependentField.getValueGroups().forEach(dependentVG -> {
                                 SQLRow newSQLRow = new SQLRow(sqlRow);
                                 newSQLRow.setFieldValue(dependentField.getName(), dependentVG.getValue());

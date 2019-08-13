@@ -11,31 +11,31 @@
     "DESCRIPTION_IN_FILE_NAME":"test"
   },
   "DATA": {
-    "CREATED_BY":"'e004084'",
-    "RELEASE_NUMBER":"'R19.3'",
+    "CREATED_BY":"e004084",
+    "RELEASE_NUMBER":"R19.3",
     "TEMPLATE_ID":
     {
-      "'SE_MAILBOX_NEW_MAIL_ORDER'":
+      "SE_MAILBOX_NEW_MAIL_ORDER":
       {
         "INSTITUTE":
         {
-          "'ALL'":
+          "ALL":
           {
             "LANGUAGE": [
-              "'DE'",
-              "'EN'",
-              "'TR'",
-              "'SR'"
+              "DE",
+              "EN",
+              "TR",
+              "SR"
             ],
             "RESOURCE_ID":
             {
-              "'LBL_SIGN_SELECTED'":
+              "LBL_SIGN_SELECTED":
               {
-                "TEXT": "'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'"
+                "TEXT": "Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten"
               },
-              "'412124124124'":
+              "412124124124":
               {
-                "TEXT": "'Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten'"
+                "TEXT": "Bitte w&#228;hlen Sie, wie Sie die ausgew&#228;hlten Auftr&#228;ge zeichnen m&#246;chten"
               }
             }
           }
